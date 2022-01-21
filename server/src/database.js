@@ -11,5 +11,5 @@ mongoose.connect(URI)
 const connection = mongoose.connection
 
 connection.once('open',()=>{
-    console.log('the database has been connected successfully: ', URI);
+    console.log('The database has been connected successfully: ', URI);
 })

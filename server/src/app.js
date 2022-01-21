@@ -8,5 +8,13 @@ const app = express();
 
 app.set('port', process.env.PORT || 4000)
 
+//middlewares 
+app.use(cors()) //cors es un modulo que nos permite  que haya una relacion entre nuesro servidor de backend y en frontend 
+app.use(express.json())// para que nos envie un json 
+
+//rutas 
+app.get('/', (req, res)=>{
+    res.send('Welcome to Api Rest full')
+})
 
 module.exports = app;
