@@ -33,7 +33,7 @@ usuarioCtrl.deleteUsu = async(req, res) => {
     res.json({message: 'User has been deleted'}) 
 }
 
-usuarioCtrl.getUsu = async(req, res) => {
+usuarioCtrl.updatedUsu = async(req, res) => {
     const {nombre, apellido, email, telefono, edad} = req.body;
     await Usuario.findByIdAndUpdate(req.params.id, {
          nombre,
