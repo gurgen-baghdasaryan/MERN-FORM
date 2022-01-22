@@ -17,4 +17,7 @@ app.get('/', (req, res)=>{
     res.send('Welcome to Api Rest full')
 })
 
+//ruta para nuestra api de usuarios
+app.use('/api/usuarios', require('./routes/usuario'))
+
 module.exports = app;
