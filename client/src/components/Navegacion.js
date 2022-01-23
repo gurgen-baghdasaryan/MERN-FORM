@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Navegacion = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div className="container">
         <Link className="navbar-brand" to="/">
           Usuario
         </Link>
@@ -20,14 +20,14 @@ const Navegacion = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <Link className="navbar-brand" to="/">
+              <Link className="nav-link" to="/">
                 Lista Usuario
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="navbar-brand" to="/CrearUsuario">
+              <Link className="nav-link" to="/CrearUsuarios">
                 Crear Usuario
               </Link>
             </li>

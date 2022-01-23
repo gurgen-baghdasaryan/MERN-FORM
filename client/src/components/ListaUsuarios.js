@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 
 const ListaUsuarios = () => {
-    return (
-        <div>
-            lista usu
-        </div>
-    )
-}
+  return (
+    <div className="ff">dsfafafd</div>
+  );
+};
 
-export default ListaUsuarios
+export default ListaUsuarios;
