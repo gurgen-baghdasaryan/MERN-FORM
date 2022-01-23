@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 
 const CrearUsuarios = () => {
 
@@ -19,7 +20,7 @@ const CrearUsuarios = () => {
         setUsuario({...usuario, [name]: value}) 
     }
 
-    const guardarDatos = (e) => {
+    const guardarDatos = async(e) => {
             e.preventDefault();
             // console.log(usuario);
             //crear la logica  para la peticion post
@@ -31,6 +32,7 @@ const CrearUsuarios = () => {
                 email:usuario.email,
             }
 
+            await axios.post('http://localhost:4000/api/usuarios', newUser)
             setUsuario({...valorInicial})
     }
 
