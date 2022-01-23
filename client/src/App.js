@@ -9,13 +9,12 @@ import ListaUsuarios from './components/ListaUsuarios';
 function App() {
   return (
     <div className="">
-      Helooooooo
       <Navegacion />
       <div className="container p-4">
         <Routes>
           <Route exact path="/" element={<ListaUsuarios />} />
-          <Route path="/" element={<CrearUsuarios />} />
-          <Route path="/edit/:id" element={<CrearUsuarios />} />
+          <Route exact path="/CrearUsuarios" element={<CrearUsuarios />} />
+          <Route exact path="/edit/:id" element={<CrearUsuarios />} />
         </Routes>
       </div>
     </div>
