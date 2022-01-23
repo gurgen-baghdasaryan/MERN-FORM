@@ -1,10 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const CrearUsuarios = () => {
+
+
+    const valorInicial = {
+        nombre:'',
+        apellido:'',
+        edad:18,
+        telefono:0,
+        email:''
+
+    }
+
+    const [usuario, setUsuario] = useState(valorInicial)
+
+    const captruarDatos = (e) => {
+        const {name, value} = e.target
+        setUsuario({...usuario, [name]: value}) 
+    }
+
+    const guardarDatos = (e) => {
+            e.preventDefault();
+            // console.log(usuario);
+            //crear la logica  para la peticion post
+            const newUser = {
+                nombre:usuario.nombre,
+                apellido:usuario.apellido,
+                edad:usuario.edad,
+                telefono:usuario.telefono,
+                email:usuario.email,
+            }
+
+            setUsuario({...valorInicial})
+    }
+
     return (
         <div className="col-md-5 offset-md-3">
       <div className="card card-body">
-        <form>
+        <form onSubmit={guardarDatos}>
           <h2 className="text-center">Crear Usuario</h2>
           <div className="mb-3">
             <label>Nombre:</label>
@@ -13,6 +46,9 @@ const CrearUsuarios = () => {
               className="form-control"
               placeholder="introduzca su Nombre"
               required
+              name="nombre"
+              value={usuario.nombre}
+              onChange={captruarDatos}
             />
           </div>
           <div className="mb-3">
@@ -22,6 +58,9 @@ const CrearUsuarios = () => {
               className="form-control"
               placeholder="introduzca su Apellido"
               required
+              name="apellido"
+              value={usuario.apellido}
+              onChange={captruarDatos}
             />
           </div>
           <div className="mb-3">
@@ -31,6 +70,9 @@ const CrearUsuarios = () => {
               className="form-control"
               placeholder="introduzca su Edad"
               required
+              name="edad"
+              value={usuario.edad}
+              onChange={captruarDatos}
             />
           </div>
           <div className="mb-3">
@@ -40,6 +82,9 @@ const CrearUsuarios = () => {
               className="form-control"
               placeholder="introduzca su Tel"
               required
+              name="telefono"
+              value={usuario.telefono}
+              onChange={captruarDatos}
             />
           </div>
           <div className="mb-3">
@@ -49,6 +94,9 @@ const CrearUsuarios = () => {
               className="form-control"
               placeholder="introduzca su Email"
               required
+              name="email"
+              value={usuario.email}
+              onChange={captruarDatos}
             />
           </div>
 
