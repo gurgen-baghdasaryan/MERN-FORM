@@ -11,7 +11,7 @@ router.route('/')
 
 router.route('./:id')
 
-    .get(getUsuario) 
+    .get(getUsuario)
     .delete(deleteUsu)
     .put(updatedUsu)
 
