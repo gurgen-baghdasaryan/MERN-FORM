@@ -1,4 +1,4 @@
-//esta logica es para egecutar el servidor
+//esta logica es para ejecutar el servidor
 require('dotenv').config()
 
 const app = require('./app')

@@ -9,7 +9,7 @@ router.route('/')
     .get(getUsu)
     .post(createUsu)
 
-router.route('./:id')
+router.route('/:id')
 
     .get(getUsuario)
     .delete(deleteUsu)
