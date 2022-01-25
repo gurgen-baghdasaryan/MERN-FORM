@@ -1,6 +1,6 @@
-const  mongoose = require('mongoose')
+//cadena de conexion para poder conectar nuestro servidor con nuestra base de datos
 
-//cadena de conexion
+const  mongoose = require('mongoose')
 
 const URI = process.env.MONGODB_URI 
             ? process.env.MONGODB_URI
