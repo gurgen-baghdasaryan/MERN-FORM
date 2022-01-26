@@ -1,10 +1,10 @@
-require('dotenv').config() //nos permite  poder  axeder a la configuracion de nuestra cadena de conexion en nuestra variable del entorno
+require('dotenv').config() // Nos permite poder acceder a nuestra configuración de cadena de conexión en nuestra variable de entorno
 
 const app = require('./app')
 require('./database')
 
 
-//esta logica es para ejecutar el servidor
+// Esta logica es para ejecutar el servidor
 async function main(){
 
     await app.listen(app.get('port'))

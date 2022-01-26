@@ -1,4 +1,4 @@
-//En esta carpeta crearemos las rutas con las que  vamos a realizar las consultas
+//En este archivo crearemos las rutas con las que  vamos a realizar las consultas
 
 const{Router} =require('express')
 const router = Router() 
@@ -9,7 +9,8 @@ router.route('/')
     .get(getUsu)
     .post(createUsu)
 
-router.route('/:id')
+router.route('/:id') // Cuando enviamos un parámetro a través de la URL vamos a ejecutar get(), delete(), put()
+                     // Cuando hacemos estas solicitudes debemos enviar un indicador para que podamos decirle a la API qué documento queremos
 
     .get(getUsuario)
     .delete(deleteUsu)
