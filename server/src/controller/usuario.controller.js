@@ -24,8 +24,14 @@ usuarioCtrl.createUsu = async(req, res) => {
 }
 
 usuarioCtrl.getUsuario = async(req, res) => {
-    const usuario = await Usuario.findById(req.params.id)
-    res.json(usuario)
+    console.log(req);
+    try {
+        const usuario = await Usuario.findById(req.params.id)
+        res.json(usuario)
+    }catch(err){
+        console.log(err);
+    } 
+   
 }
 
 usuarioCtrl.deleteUsu = async(req, res) => {
