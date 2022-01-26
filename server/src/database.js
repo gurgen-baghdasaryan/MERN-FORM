@@ -1,15 +1,15 @@
-//cadena de conexion para poder conectar nuestro servidor con nuestra base de datos
+// Cadena de conexion para poder conectar nuestro servidor con nuestra base de datos
 
-const  mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-const URI = process.env.MONGODB_URI 
-            ? process.env.MONGODB_URI
-            : 'mongodb://localhost/dbtest'
+const URI = process.env.MONGODB_URI
+  ? process.env.MONGODB_URI
+  : "mongodb://localhost/dbtest";
 
-mongoose.connect(URI) 
+mongoose.connect(URI); // Se conecta atraves de URI que es la variable que nosotros estamos conectando con la informacion que guardamos en nuestro variable del entorno.
 
-const connection = mongoose.connection
+const connection = mongoose.connection; // Con esto le estamos disiendo a mongoose quese conecte
 
-connection.once('open',()=>{
-    console.log('The database has been connected successfully: ', URI);
-})
+connection.once("open", () => {
+  console.log("The database has been connected successfully: ", URI);
+});

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-
 const CrearUsuarios = () => {
 
 
@@ -10,10 +9,11 @@ const CrearUsuarios = () => {
         edad:18,
         telefono:0,
         email:''
-
+        
     }
 
-    const [usuario, setUsuario] = useState(valorInicial)
+    const [usuario, setUsuario] = useState(valorInicial) //El useState() devuelve un array de 2 posiciones , la primera el valor y la segunda es la forma de actualizar ese valor
+
 
     const captruarDatos = (e) => {
         const {name, value} = e.target
@@ -101,8 +101,7 @@ const CrearUsuarios = () => {
               onChange={captruarDatos}
             />
           </div>
-
-          <button className="btn btn-primary form-control">Registrar Usuario</button>
+          <button  className="btn btn-primary form-control">Registrar Usuario</button>
         </form>
       </div>
     </div>
