@@ -13,7 +13,6 @@ app.use(cors()) //Cors Es un módulo que nos permite tener una relación entre n
 app.use(express.json()) // para que nos envíe un json
 
 
-
 //Ruta para nuestra API de usuarios
 app.use('/api/usuarios', require('./routes/usuario'))
 
