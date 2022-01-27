@@ -19,7 +19,7 @@ usuarioCtrl.createUsu = async (req, res) => {
     edad: edad,
   });
 
-  await newUsu.save(); // Estamos almacenando un nuevo documento de lo que viene del Cliente
+  await newUsu.save(); // Estamos almacenando un nuevo documento de lo que viene del Clienteee
   res.json({ message: "The user has been created" });
 };
 
