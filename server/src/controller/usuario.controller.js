@@ -1,13 +1,14 @@
 // El archivo controller tendra la logica/funcion   que permitan hacer  respuesta  a cada una de las peticiones que hagamos (la peticion GET POST PUT DELETE)
 const usuarioCtrl = {}; 
 
-const Usuario = require("../models/Usuario"); //Importamos nuestro modelo
+const Usuario = require("../models/Usuario"); // Importamos nuestro modelo
 
 usuarioCtrl.getUsu = async (req, res) => {
   const usuarios = await Usuario.find(); // Aqui va a buscar y almacenar la informacion que venga desde nuestro cliente
   res.json(usuarios);
 };
 
+// La logica para poder crear usuario (el metodo POST)
 usuarioCtrl.createUsu = async (req, res) => {
   const { nombre, apellido, email, telefono, edad } = req.body;
   const newUsu = new Usuario({
@@ -18,7 +19,7 @@ usuarioCtrl.createUsu = async (req, res) => {
     edad: edad,
   });
 
-  await newUsu.save();
+  await newUsu.save(); // Estamos almacenando un nuevo documento de lo que viene del Cliente
   res.json({ message: "The user has been created" });
 };
 
