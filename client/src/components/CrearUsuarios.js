@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import e from 'express'
 
 
 const CrearUsuarios = () => {
@@ -41,8 +42,22 @@ const CrearUsuarios = () => {
             setUsuario({...valorInicial})
     }
 
-    // Logica para hacer una petcion a la API
+    // Esto va ser la funcion para actualizar la informasion de nuestro usuario
+    const actualizarUsu = async(e)=>{
+      e.preventDefault();
+      const newUser = {
+        nombre:usuario.nombre,
+        apellido:usuario.apellido,
+        edad:usuario.edad,
+        telefono:usuario.telefono,
+        email:usuario.email,
+      }
+      await axios.put('http://localhost:4000/api/usuarios/' + subId, newUser)
+      setUsuario({...valorInicial})
+      setSubId('')
+    }
 
+    // Logica para hacer una petcion a la API
     const obtUno = async(valorId)=>{
       const res = await axios.get('http://localhost:4000/api/usuarios/' +valorId)
       setUsuario({
@@ -130,8 +145,10 @@ const CrearUsuarios = () => {
           <button  className="btn btn-primary form-control">Registrar Usuario</button>
         </form>
 
-        <form>
-          <button className='btn btn-danger form-control mt-2'></button>
+        <form onSubmit={actualizarUsu}>
+          <button className='btn btn-danger form-control mt-2'>
+            Actualizar Informacion
+          </button>
         </form>
       </div>
     </div>
