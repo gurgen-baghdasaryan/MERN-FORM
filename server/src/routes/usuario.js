@@ -7,7 +7,7 @@ const {createUsu, getUsu, getUsuario, deleteUsu, updatedUsu} = require('../contr
 router.route('/') // Importamos las funcionalidades desde nustro controller
 
     .get(getUsu) // Es nuestra peticon global
-    .post(createUsu) // En la peticon Post donde tenemos la logica para crear usuario 
+    .post(createUsu) // Es la peticon Post donde tenemos la logica para crear usuario 
 
 router.route('/:id') // Cuando enviamos un parámetro a través de la URL vamos a ejecutar get(), delete(), put()
                      // Cuando hacemos estas solicitudes debemos enviar un indicador para que podamos decirle a la API qué documento queremos
