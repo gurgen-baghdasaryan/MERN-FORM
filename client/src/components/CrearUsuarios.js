@@ -129,6 +129,10 @@ const CrearUsuarios = () => {
           </div>
           <button  className="btn btn-primary form-control">Registrar Usuario</button>
         </form>
+
+        <form>
+          <button className='btn btn-danger form-control mt-2'></button>
+        </form>
       </div>
     </div>
     )
