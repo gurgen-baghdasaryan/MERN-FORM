@@ -28,13 +28,13 @@ usuarioCtrl.getUsuario = async (req, res) => {
   console.log(req);
   try {
     const usuario = await Usuario.findById(req.params.id); // Le decimos que busque por el Id
-    res.json(usuario); // Nos devuelve a traves de un json
+    res.json(usuario); // Nos devuelve a través de un json
   } catch (err) {
     console.log(err);
   }
 };
 
-// Logica para borrar el usuario por Id, que donde encuntre el parametro Id que nos venga por el ·req vamos a encontralo y lo vamos a eliminar de nuestro modelo
+// Logica para borrar el usuario por Id, que donde encuentre el parametro Id que nos venga por el ·req vamos a encontralo y lo vamos a eliminar de nuestro modelo
 usuarioCtrl.deleteUsu = async (req, res) => {
   await Usuario.findByIdAndDelete(req.params.id);
   res.json({ message: "User has been deleted" });
