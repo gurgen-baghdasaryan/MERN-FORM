@@ -1,67 +1,61 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import { useParams } from 'react-router-dom'
-
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const CrearUsuarios = () => {
+  const valorInicial = {
+    nombre: "",
+    apellido: "",
+    color: " ",
+    price: 0,
+    email: "",
+  };
 
+  // let {id} = useParams();
 
-    const valorInicial = {
-        nombre:'',
-        apellido:'',
-        edad:18,
-        telefono:0,
-        email:''
-        
-    }
+  const [usuario, setUsuario] = useState(valorInicial); //El useState() devuelve un array de 2 posiciones , la primera el valor y la segunda es la forma de actualizar ese valor
+  // const [subId, setSubId] = useState(id)
 
-    // let {id} = useParams();
+  const captruarDatos = (e) => {
+    const { name, value } = e.target;
+    setUsuario({ ...usuario, [name]: value });
+  };
 
-    const [usuario, setUsuario] = useState(valorInicial) //El useState() devuelve un array de 2 posiciones , la primera el valor y la segunda es la forma de actualizar ese valor
-    // const [subId, setSubId] = useState(id)
+  const guardarDatos = async (e) => {
+    e.preventDefault();
+    // console.log(usuario);
+    //crear la logica  para la peticion post
+    const newUser = {
+      nombre: usuario.nombre,
+      apellido: usuario.apellido,
+      edad: usuario.edad,
+      telefono: usuario.telefono,
+      email: usuario.email,
+    };
 
-    const captruarDatos = (e) => {
-        const {name, value} = e.target
-        setUsuario({...usuario, [name]: value}) 
-    }
+    await axios.post("http://localhost:4000/api/usuarios", newUser);
+    setUsuario({ ...valorInicial });
+  };
 
-    const guardarDatos = async(e) => {
-            e.preventDefault();
-            // console.log(usuario);
-            //crear la logica  para la peticion post
-            const newUser = {
-                nombre:usuario.nombre,
-                apellido:usuario.apellido,
-                edad:usuario.edad,
-                telefono:usuario.telefono,
-                email:usuario.email,
-            }
+  // Esto va ser la funcion para actualizar la informasion de nuestro usuario
+  // const actualizarUsu = async(e)=>{
+  //   e.preventDefault();
+  //   const newUser = {
+  //     nombre:usuario.nombre,
+  //     apellido:usuario.apellido,
+  //     edad:usuario.edad,
+  //     telefono:usuario.telefono,
+  //     email:usuario.email,
+  //   }
+  //   await axios.put('http://localhost:4000/api/usuarios/' + subId, newUser)
+  //   setUsuario({...valorInicial})
+  //   setSubId('')
+  // }
 
-            await axios.post('http://localhost:4000/api/usuarios', newUser)
-            setUsuario({...valorInicial})
-    }
+  // Logica para hacer una petcion a la API
 
-    // Esto va ser la funcion para actualizar la informasion de nuestro usuario
-    // const actualizarUsu = async(e)=>{
-    //   e.preventDefault();
-    //   const newUser = {
-    //     nombre:usuario.nombre,
-    //     apellido:usuario.apellido,
-    //     edad:usuario.edad,
-    //     telefono:usuario.telefono,
-    //     email:usuario.email,
-    //   }
-    //   await axios.put('http://localhost:4000/api/usuarios/' + subId, newUser)
-    //   setUsuario({...valorInicial})
-    //   setSubId('')
-    // }
-
-    // Logica para hacer una petcion a la API
-    
-
-    return (
-        <div className="col-md-5 offset-md-3">
+  return (
+    <div className="col-md-5 offset-md-3">
       <div className="card card-body">
         <form onSubmit={guardarDatos}>
           <h2 className="text-center">Crear Usuario</h2>
@@ -125,12 +119,13 @@ const CrearUsuarios = () => {
               onChange={captruarDatos}
             />
           </div>
-          <button  className="btn btn-primary form-control">Registrar Usuario</button>
+          <button className="btn btn-primary form-control">
+            Registrar Usuario
+          </button>
         </form>
       </div>
     </div>
-    )
-}
+  );
+};
 
 export default CrearUsuarios;
-
